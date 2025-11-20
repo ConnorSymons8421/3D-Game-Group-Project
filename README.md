@@ -106,10 +106,10 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 
 ## Credits
 Created by **Angela Lee, Connor Symons, Aleksa Ocampo, Jeremiah Cho**  
-Angela: Level design (Menus, fall animation), art (menu backgrounds)
-Connor: Level design (Obstacles)
-Aleksa: Level design/Animation (Player)
-Jeremiah: Level design (Obstacles)
+- Angela: Level design (Menus, fall animation), art (menu backgrounds)
+- Connor: Level design (Obstacles)
+- Aleksa: Level design/Animation (Player)
+- Jeremiah: Level design (Obstacles)
 Inspiration: *Wipeout* & *American Ninja Warrior*  
 Engine: Unity 3D
 
