@@ -48,7 +48,7 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 - Sliding Platforms: 5 horizontally-moving platforms, which required timed jumps to be made
 
 **Zone 3**  
-- Rotating Sweeper Arms (×3): Circular platforms with rotating bars
+- Rotating Sweeper Arms: Circular platform with rotating bars
 - Rotating gear-like obstacle (x3): Players aim to time their jumps between each of the gear-like rotators
 
 **Zone 4**  
