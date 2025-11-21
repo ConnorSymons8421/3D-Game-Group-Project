@@ -48,7 +48,7 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 - Sliding Platforms: 5 horizontally-moving platforms, which required timed jumps to be made
 
 **Zone 3**  
-- Rotating Sweeper Arms (×3): Circular platforms with rotating bars
+- Rotating Sweeper Arms: Circular platform with rotating bars
 - Rotating gear-like obstacle (x3): Players aim to time their jumps between each of the gear-like rotators
 
 **Zone 4**  
@@ -106,6 +106,11 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 
 ## Credits
 Created by **Angela Lee, Connor Symons, Aleksa Ocampo, Jeremiah Cho**  
-Inspiration: *Wipeout* & *American Ninja Warrior*  
+- Angela: Level design (Menus, fall animation), art (menu backgrounds)
+- Connor: Level design (Obstacles)
+- Aleksa: Level design/Animation (Player)
+- Jeremiah: Level design (Obstacles)
+Inspiration: *Wipeout* & *American Ninja Warrior*
+
 Engine: Unity 3D
 
