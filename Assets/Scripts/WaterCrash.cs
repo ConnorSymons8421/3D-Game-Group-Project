@@ -80,6 +80,6 @@ public class WaterCrash : MonoBehaviour
 
         // Remove the crash text and load fail screen
         Destroy(canvasObj);
-        //SceneManager.LoadScene(failSceneName);
+        SceneManager.LoadScene("FailMenu");
     }
 }
