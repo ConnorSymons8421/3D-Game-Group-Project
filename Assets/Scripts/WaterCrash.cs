@@ -27,6 +27,9 @@ public class WaterCrash : MonoBehaviour
         {
             hasCrashed = true;
 
+            // Stop timer
+            FindObjectOfType<GameTimer>().StopTimer();
+
             // Disable player movement
             PlayerMovement pm = other.GetComponent<PlayerMovement>();
             if (pm != null) pm.enabled = false;

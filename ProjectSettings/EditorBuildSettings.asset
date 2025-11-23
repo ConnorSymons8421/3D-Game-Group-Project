@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FailMenu.unity
     guid: 00d808dccbd99470bb163780b178de9c
+  - enabled: 1
+    path: Assets/VictoryMenu.unity
+    guid: 3b559ef4e06544491b61895544f167e1
   m_configObjects: {}
