@@ -10,19 +10,26 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.2f;
     public LayerMask groundMask;
-    public float coyoteTime = 0.15f; // small grace period after leaving ground
+    public float coyoteTime = 0.15f;
 
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
     private float coyoteCounter;
 
+    // 🔹 NEW: Reference to Animator
+    private Animator animator;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();  // capsule child or same object
+
         Debug.Log("PlayerMovement Start: script initialized on " + gameObject.name);
         if (controller == null)
-            Debug.LogWarning("PlayerMovement: No CharacterController found on " + gameObject.name + ". Movement will not work.");
+            Debug.LogWarning("PlayerMovement: No CharacterController found on " + gameObject.name);
+        if (animator == null)
+            Debug.LogWarning("PlayerMovement: No Animator found!");
     }
 
     void Update()
@@ -34,26 +41,26 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
 
-        // Ground check using a small sphere at the feet (more reliable than CharacterController skin-based grounded)
+        // // 🔹 NEW: Update animator speed parameter
+        // if (animator != null)
+        //     animator.SetFloat("Speed", move.magnitude);
+
+        // 🔹 ground check
         if (groundCheck != null)
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         else
             isGrounded = controller.isGrounded;
 
         if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f; // keeps player grounded
-        }
+            velocity.y = -2f;
 
-        // update coyote counter
         if (isGrounded)
             coyoteCounter = coyoteTime;
         else
             coyoteCounter -= Time.deltaTime;
 
-        // Accept jump from Input Manager "Jump" button or Space key directly
         bool jumpPressed = Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space);
-        // Allow jump if within coyote time (short grace after leaving ground)
+
         if (jumpPressed && coyoteCounter > 0f)
         {
             velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
