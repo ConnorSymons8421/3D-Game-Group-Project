@@ -21,6 +21,11 @@ public class WaterCrash : MonoBehaviour
 
     private bool hasCrashed = false;
 
+    public void ResetCrash()
+    {
+        hasCrashed = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!hasCrashed && other.CompareTag("Player"))
@@ -81,8 +86,8 @@ public class WaterCrash : MonoBehaviour
             yield return null;
         }
 
-        // Remove the crash text and load fail screen
+        // Remove the crash text and load retry screen
         Destroy(canvasObj);
-        SceneManager.LoadScene("FailMenu");
+        FindObjectOfType<RetryMenu>().ShowRetryMenu();
     }
 }
