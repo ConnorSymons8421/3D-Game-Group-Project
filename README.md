@@ -72,7 +72,12 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 **Pause Menu**
 - Freezes gameplay and timer  
 - Resume game
-- Quit  
+- Quit
+
+**Retry Menu**
+- Freezes gameplay and timer  
+- Player can choose to retry last obstacle
+- Or go to fail menu
 
 **Game Over Screen**
 - Displayed after player falls/fails the course  
