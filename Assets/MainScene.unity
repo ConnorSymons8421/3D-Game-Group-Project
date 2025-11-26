@@ -3109,10 +3109,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 145973504337434419, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145973504337434419, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: distance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1227611623070776330, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 03488d72531574ef0945dca2c503d89b, type: 2}
+    - target: {fileID: 1568213246581885112, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568213246581885112, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: distance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639898286229338520, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639898286229338520, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: distance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1967683322458153505, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3133,6 +3157,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 03488d72531574ef0945dca2c503d89b, type: 2}
+    - target: {fileID: 4922170800736291626, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922170800736291626, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: distance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025680023973707380, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5025680023973707380, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
+      propertyPath: distance
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6193547387293544580, guid: 06d57f979dd094c20bd6cfa01504be44, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
