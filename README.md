@@ -115,7 +115,7 @@ Created by **Angela Lee, Connor Symons, Aleksa Ocampo, Jeremiah Cho**
 - Connor: Level design (Obstacles)
 - Aleksa: Level design/Animation (Player)
 - Jeremiah: Level design (Obstacles)
-- 
+  
 Inspiration: *Wipeout* & *American Ninja Warrior*
 
 Engine: Unity 3D
