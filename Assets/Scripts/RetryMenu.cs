@@ -1,3 +1,4 @@
+using Supercyan.FreeSample;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +8,14 @@ public class RetryMenu : MonoBehaviour
     public GameObject player;
     public GameTimer timer;
 
-    private PlayerMovement movement;
+    // private PlayerMovement movement;
+    private SimpleSampleCharacterControl movement; // updated for new player
     private PlayerCheckpointTracker checkpointTracker;
 
     private void Start()
     {
-        movement = player.GetComponent<PlayerMovement>();
+        // movement = player.GetComponent<PlayerMovement>();
+        movement = player.GetComponent<SimpleSampleCharacterControl>(); // updated for new player
         checkpointTracker = player.GetComponent<PlayerCheckpointTracker>();
         retryMenuUI.SetActive(false);
     }
