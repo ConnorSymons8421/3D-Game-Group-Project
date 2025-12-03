@@ -7,8 +7,8 @@ namespace Supercyan.FreeSample
     {
 
         private Transform m_currentTarget = null;
-        private float m_distance = 5f;
-        private float m_height = 2;
+        private float m_distance = 10f;
+        private float m_height = 1;
         private float m_lookAtAroundAngle = 0;
 
         [SerializeField] private List<Transform> m_targets = null;
