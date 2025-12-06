@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Supercyan.FreeSample;
 
 public class WaterCrash : MonoBehaviour
 {
@@ -38,6 +39,10 @@ public class WaterCrash : MonoBehaviour
             // Disable player movement
             PlayerMovement pm = other.GetComponent<PlayerMovement>();
             if (pm != null) pm.enabled = false;
+
+            // UPDATED FOR NEW PLAYER
+            SimpleSampleCharacterControl playerControl = other.GetComponent<SimpleSampleCharacterControl>();
+            if (playerControl != null) playerControl.enabled = false;
 
             // Spawn the crash text in front of player
             GameObject canvasObj = Instantiate(crashCanvasPrefab);
