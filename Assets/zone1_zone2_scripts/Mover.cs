@@ -1,59 +1,48 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Mover : MonoBehaviour
 {
+    // A dropdown list for easy selection
+    public enum MovementAxis { LeftRight_X, UpDown_Y, ForwardBack_Z }
+
     [Header("Movement Settings")]
+    public MovementAxis axis = MovementAxis.LeftRight_X; // Default
     public float speed = 2f;
     public float distance = 3f;
-    public bool moveOnZAxis = true;
 
+    private Rigidbody rb;
     private Vector3 startPos;
-    private float randomOffset;
-    private Rigidbody rb; 
+
     void Start()
     {
-        startPos = transform.position;
-        randomOffset = Random.Range(0f, 10f);
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
+        startPos = transform.position;
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
-        float move = Mathf.Sin((Time.time + randomOffset) * speed) * distance;
-        Vector3 targetPosition;
+        // 1. Calculate the offset (Sine Wave)
+        float offset = Mathf.Sin(Time.time * speed) * distance;
+        Vector3 targetPos = startPos;
 
-        if (moveOnZAxis)
+        // 2. Apply to the correct axis based on your Dropdown selection
+        switch (axis)
         {
-            targetPosition = new Vector3(startPos.x, startPos.y, startPos.z + move);
-        }
-        else
-        {
-            targetPosition = new Vector3(startPos.x + move, startPos.y, startPos.z);
+            case MovementAxis.LeftRight_X:
+                targetPos = new Vector3(startPos.x + offset, startPos.y, startPos.z);
+                break;
+            case MovementAxis.UpDown_Y:
+                targetPos = new Vector3(startPos.x, startPos.y + offset, startPos.z);
+                break;
+            case MovementAxis.ForwardBack_Z:
+                targetPos = new Vector3(startPos.x, startPos.y, startPos.z + offset);
+                break;
         }
 
-        if (rb != null)
-        {
-            rb.MovePosition(targetPosition);
-        }
-        else
-        {
-            transform.position = targetPosition;
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(this.transform);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.transform.SetParent(null);
-        }
+        // 3. Move physically (Carries the player!)
+        rb.MovePosition(targetPos);
     }
 }
