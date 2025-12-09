@@ -6,6 +6,16 @@ public class PlayerCheckpointTracker : MonoBehaviour
     public GameTimer timer;
     private bool onCheckpoint = false;
 
+    private void Start()
+    {
+        // If no checkpoint is set, use player's starting position
+        if (currentRespawnPoint == null)
+        {
+            currentRespawnPoint = transform;
+            Debug.LogWarning("PlayerCheckpointTracker: No initial respawn point set. Using player start position.");
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Checkpoint"))
