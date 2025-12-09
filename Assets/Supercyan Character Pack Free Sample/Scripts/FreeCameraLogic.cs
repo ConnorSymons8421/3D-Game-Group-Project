@@ -8,7 +8,7 @@ namespace Supercyan.FreeSample
 
         private Transform m_currentTarget = null;
         private float m_distance = 10f;
-        private float m_height = 1;
+        private float m_height = 4f;
         private float m_lookAtAroundAngle = 0;
 
         [SerializeField] private List<Transform> m_targets = null;
@@ -54,7 +54,7 @@ namespace Supercyan.FreeSample
             position.y = targetHeight;
 
             transform.position = position;
-            transform.LookAt(m_currentTarget.position + new Vector3(0, m_height, 0));
+            transform.LookAt(m_currentTarget.position + new Vector3(0, m_height * 0.5f, 0));
         }
     }
 }
