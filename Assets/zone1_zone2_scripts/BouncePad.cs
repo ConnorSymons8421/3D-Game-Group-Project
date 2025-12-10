@@ -2,17 +2,21 @@ using UnityEngine;
 
 public class BouncePad : MonoBehaviour
 {
-    public float bounceForce = 15f; // increased default force
+    [Header("Settings")]
+    public float bounceForce = 25f;
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        // check for Rigidbody
-        Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z); // reset gravity
-            rb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
-            Debug.Log("BOING! Bounced Player");
+            Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
+
+            if (playerRb != null)
+            {
+                Vector3 currentVelocity = playerRb.velocity;
+
+                playerRb.velocity = new Vector3(currentVelocity.x, bounceForce, currentVelocity.z);
+            }
         }
     }
 }
