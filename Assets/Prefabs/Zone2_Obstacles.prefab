@@ -307,9 +307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121851712ccdb48cb8b84c8a424373fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
   speed: 3
   distance: 3
-  moveOnZAxis: 1
 --- !u!54 &5963272687155409075
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -456,9 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121851712ccdb48cb8b84c8a424373fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
   speed: 2
   distance: 3
-  moveOnZAxis: 1
 --- !u!54 &7937761353429909798
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -516,7 +516,7 @@ Transform:
   m_GameObject: {fileID: 2374528431926321757}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.2, y: -0.8, z: -0.030000448}
+  m_LocalPosition: {x: 3.2, y: -0.96, z: -0.030000448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -755,9 +755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121851712ccdb48cb8b84c8a424373fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
   speed: 4
   distance: 5
-  moveOnZAxis: 1
 --- !u!54 &529511739339082991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -965,9 +965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121851712ccdb48cb8b84c8a424373fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
   speed: 4
   distance: 3
-  moveOnZAxis: 1
 --- !u!54 &2455033994452858131
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1175,7 +1175,7 @@ Transform:
   m_GameObject: {fileID: 6070054614569585607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.24, y: -0.82, z: -0.029999971}
+  m_LocalPosition: {x: 7.24, y: -0.92, z: -0.029999971}
   m_LocalScale: {x: 1.1149, y: 1.1149, z: 1.1149}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1430,7 +1430,7 @@ Transform:
   m_GameObject: {fileID: 6862572012851160912}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: -0.9, z: -0.030000448}
+  m_LocalPosition: {x: -3.1, y: -0.92, z: -0.030000448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1669,9 +1669,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121851712ccdb48cb8b84c8a424373fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 0
   speed: 1
   distance: 3
-  moveOnZAxis: 1
 --- !u!54 &329870402586691282
 Rigidbody:
   m_ObjectHideFlags: 0
