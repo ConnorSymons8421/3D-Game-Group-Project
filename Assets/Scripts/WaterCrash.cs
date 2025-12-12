@@ -36,6 +36,7 @@ public class WaterCrash : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Triggered WaterCrash by: " + other.name);
         if (!hasCrashed && other.CompareTag("Player"))
         {
             hasCrashed = true;
@@ -80,12 +81,10 @@ public class WaterCrash : MonoBehaviour
     {
         float timer = 0f;
         Vector3 startPos = player.position;
-        // Keep player at water surface level (adjust this value if needed)
-        float waterSurfaceOffset = 0.3f;
+        float waterSurfaceOffset = -0.7f;
 
         while (timer < delayBeforeFail)
         {
-            // Player bobbing only - bob around water surface instead of below
             float yOffset = Mathf.Sin(timer * bobFrequency * Mathf.PI * 2f) * bobAmplitude;
             player.position = new Vector3(startPos.x, startPos.y + waterSurfaceOffset + yOffset, startPos.z);
 
