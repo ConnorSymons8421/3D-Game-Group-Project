@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using Supercyan.FreeSample;
@@ -21,10 +21,17 @@ public class WaterCrash : MonoBehaviour
     public ParticleSystem splashPrefab;
 
     private bool hasCrashed = false;
+    private Coroutine bobbingCoroutine = null;
 
     public void ResetCrash()
     {
         hasCrashed = false;
+        // Stop any running bobbing animation
+        if (bobbingCoroutine != null)
+        {
+            StopCoroutine(bobbingCoroutine);
+            bobbingCoroutine = null;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,7 +72,7 @@ public class WaterCrash : MonoBehaviour
             }
 
             // Start bobbing and fail sequence
-            StartCoroutine(BobAndFail(other.transform, canvasObj));
+            bobbingCoroutine = StartCoroutine(BobAndFail(other.transform, canvasObj));
         }
     }
 
@@ -73,12 +80,14 @@ public class WaterCrash : MonoBehaviour
     {
         float timer = 0f;
         Vector3 startPos = player.position;
+        // Keep player at water surface level (adjust this value if needed)
+        float waterSurfaceOffset = 0.3f;
 
         while (timer < delayBeforeFail)
         {
-            // Player bobbing only
+            // Player bobbing only - bob around water surface instead of below
             float yOffset = Mathf.Sin(timer * bobFrequency * Mathf.PI * 2f) * bobAmplitude;
-            player.position = startPos + Vector3.down * 0.5f + Vector3.up * yOffset;
+            player.position = new Vector3(startPos.x, startPos.y + waterSurfaceOffset + yOffset, startPos.z);
 
             // Keep crash text facing the camera
             if (Camera.main != null)
