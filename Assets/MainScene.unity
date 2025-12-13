@@ -782,7 +782,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141005475}
   serializedVersion: 8
-  lengthInSec: 10
+  lengthInSec: 5
   simulationSpeed: 0.3
   stopAction: 0
   cullingMode: 0
@@ -791,7 +791,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -857,7 +857,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 8
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2107,7 +2107,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.37764716, g: 0.5849056, b: 0.9647059, a: 1}
+        key0: {r: 0.3254717, g: 0.71521866, b: 1, a: 1}
         key1: {r: 0.64531887, g: 1, b: 0.504717, a: 1}
         key2: {r: 1, g: 0.9780887, b: 0.36320752, a: 0}
         key3: {r: 1, g: 0.17789987, b: 0, a: 0}
@@ -5776,7 +5776,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148522034}
   serializedVersion: 8
-  lengthInSec: 10
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5785,7 +5785,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -10668,7 +10668,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.1462264, b: 0.23013727, a: 1}
   m_Intensity: 0
-  m_Range: 10
+  m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -16085,7 +16085,7 @@ Transform:
   m_GameObject: {fileID: 959498629}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.11, y: 0.503, z: 0}
+  m_LocalPosition: {x: -0.11, y: 0.5, z: 0}
   m_LocalScale: {x: 0.15, y: 0.004, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16178,9 +16178,9 @@ MonoBehaviour:
   smokeLeft: {fileID: 2102327785}
   smokeRight: {fileID: 148522037}
   sparks: {fileID: 1064700144}
-  confetti: {fileID: 0}
-  winScreen: {fileID: 0}
-  winDelay: 2
+  confetti: {fileID: 141005478}
+  timer: {fileID: 500205461}
+  winDelay: 7
 --- !u!54 &959498635
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16692,7 +16692,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064700143}
   serializedVersion: 8
-  lengthInSec: 10
+  lengthInSec: 5
   simulationSpeed: 0.3
   stopAction: 0
   cullingMode: 0
@@ -16701,7 +16701,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -16938,7 +16938,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -23869,7 +23869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1121125582535847827, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -640
+      value: -650
       objectReference: {fileID: 0}
     - target: {fileID: 1121125582535847827, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28341,7 +28341,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102327784}
   serializedVersion: 8
-  lengthInSec: 10
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -28350,7 +28350,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:

@@ -8,6 +8,7 @@ public class FinalPlatformTrigger : MonoBehaviour
     public ParticleSystem smokeRight;
     public ParticleSystem sparks;
     public ParticleSystem confetti;
+    public GameTimer timer;
     public float winDelay = 2.0f;
 
     private bool activated = false;
@@ -19,6 +20,8 @@ public class FinalPlatformTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             activated = true;
+
+            timer.StopTimer();
 
             // Light up button
             if (buttonLight != null)
