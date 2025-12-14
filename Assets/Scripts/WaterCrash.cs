@@ -20,6 +20,9 @@ public class WaterCrash : MonoBehaviour
     [Header("Splash Effect")]
     public ParticleSystem splashPrefab;
 
+    [Header("Sound")]
+    public AudioSource waterSplashSFX;
+
     private bool hasCrashed = false;
     private Coroutine bobbingCoroutine = null;
 
@@ -40,6 +43,11 @@ public class WaterCrash : MonoBehaviour
         if (!hasCrashed && other.CompareTag("Player"))
         {
             hasCrashed = true;
+
+            if (waterSplashSFX != null)
+            {
+                waterSplashSFX.Play();
+            }
 
             // Stop timer
             FindObjectOfType<GameTimer>().StopTimer();
