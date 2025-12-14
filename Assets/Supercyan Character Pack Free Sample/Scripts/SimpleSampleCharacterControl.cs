@@ -26,6 +26,12 @@ namespace Supercyan.FreeSample
 
         [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
+        [Header("Audio")]
+        [SerializeField] private AudioSource m_audioSource = null;
+        [SerializeField] private AudioClip m_jumpClip = null;
+        [SerializeField] private AudioClip m_footstepLoop = null; // looping footsteps
+        [SerializeField] private float m_footstepMinSpeed = 0.1f; // movement threshold for footsteps
+
         private float m_currentV = 0;
         private float m_currentH = 0;
 
@@ -49,6 +55,7 @@ namespace Supercyan.FreeSample
         {
             if (!m_animator) { gameObject.GetComponent<Animator>(); }
             if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
+            if (!m_audioSource) { m_audioSource = gameObject.GetComponent<AudioSource>(); }
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -162,6 +169,8 @@ namespace Supercyan.FreeSample
 
             m_animator.SetFloat("MoveSpeed", m_currentV);
 
+            HandleFootsteps(Mathf.Abs(m_currentV));
+
             JumpingAndLanding();
         }
 
@@ -197,6 +206,8 @@ namespace Supercyan.FreeSample
                 m_animator.SetFloat("MoveSpeed", direction.magnitude);
             }
 
+            HandleFootsteps(direction.magnitude);
+
             JumpingAndLanding();
         }
 
@@ -208,6 +219,35 @@ namespace Supercyan.FreeSample
             {
                 m_jumpTimeStamp = Time.time;
                 m_rigidBody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
+                // Play jump sound
+                if (m_audioSource != null && m_jumpClip != null)
+                {
+                    m_audioSource.PlayOneShot(m_jumpClip);
+                }
+            }
+        }
+
+        private void HandleFootsteps(float moveMagnitude)
+        {
+            if (m_audioSource == null || m_footstepLoop == null) return;
+
+            bool shouldPlay = m_isGrounded && moveMagnitude >= m_footstepMinSpeed;
+
+            if (shouldPlay)
+            {
+                if (!m_audioSource.isPlaying || m_audioSource.clip != m_footstepLoop)
+                {
+                    m_audioSource.clip = m_footstepLoop;
+                    m_audioSource.loop = true;
+                    m_audioSource.Play();
+                }
+            }
+            else
+            {
+                if (m_audioSource.isPlaying && m_audioSource.clip == m_footstepLoop)
+                {
+                    m_audioSource.Stop();
+                }
             }
         }
     }
