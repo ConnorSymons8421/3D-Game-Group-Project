@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class FinalPlatformTrigger : MonoBehaviour
 {
@@ -18,6 +19,18 @@ public class FinalPlatformTrigger : MonoBehaviour
     [Header("Win Settings")]
     public float winDelay = 2.0f;         // Delay before showing victory screen
     public string victorySceneName = "VictoryMenu";
+
+    [Header("Celebration Sounds")]
+    public AudioSource smokeSFX;
+    public AudioSource sparkSFX;
+    public AudioSource confettiSFX;
+    public AudioSource winSFX; 
+
+    [Header("Camera Pan")]
+    public Transform cameraTransform;     // Main Camera
+    public float cameraDistance = 10f;     // How far behind the player
+    public float cameraHeight = 4f;       // Height offset
+    public float panDuration = 1.2f;      // How long the pan takes
 
     private bool activated = false;
 
@@ -60,17 +73,83 @@ public class FinalPlatformTrigger : MonoBehaviour
             // Update fastest time UI
             UpdateFastestTimeUI();
 
-            // Play effects
+            // Play effects + sounds
             if (buttonLight != null)
                 buttonLight.intensity = 5f;
-            if (smokeLeft != null) smokeLeft.Play();
-            if (smokeRight != null) smokeRight.Play();
-            if (sparks != null) sparks.Play();
-            if (confetti != null) confetti.Play();
 
+            if (smokeLeft != null)
+            {
+                smokeLeft.Play();
+                if (smokeSFX != null) smokeSFX.Play();
+            }
+
+            if (smokeRight != null)
+            {
+                smokeRight.Play();
+            }
+
+            if (sparks != null)
+            {
+                sparks.Play();
+                if (sparkSFX != null) sparkSFX.Play();
+            }
+
+            if (confetti != null)
+            {
+                confetti.Play();
+                if (confettiSFX != null) confettiSFX.Play();
+            }
+
+            if (winSFX != null)
+            {
+                winSFX.Play();
+            }
+
+            if (cameraTransform != null)
+            {
+                foreach (MonoBehaviour mb in cameraTransform.GetComponents<MonoBehaviour>())
+                {
+                    mb.enabled = false;
+                }
+            }
+
+            StartCoroutine(PanCameraBehindPlayer(other.transform));
             // Show win screen after delay
             Invoke(nameof(ShowWinScreen), winDelay);
         }
+    }
+
+    IEnumerator PanCameraBehindPlayer(Transform player)
+    {
+        if (cameraTransform == null) yield break;
+
+        Vector3 startPos = cameraTransform.position;
+        Quaternion startRot = cameraTransform.rotation;
+
+        Vector3 targetPos =
+            player.position
+            - player.forward * cameraDistance
+            + Vector3.up * cameraHeight;
+
+        Quaternion targetRot =
+            Quaternion.LookRotation(player.position + Vector3.up * 1.2f - targetPos);
+
+        float elapsed = 0f;
+
+        while (elapsed < panDuration)
+        {
+            float t = elapsed / panDuration;
+            t = Mathf.SmoothStep(0f, 1f, t);
+
+            cameraTransform.position = Vector3.Lerp(startPos, targetPos, t);
+            cameraTransform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        cameraTransform.position = targetPos;
+        cameraTransform.rotation = targetRot;
     }
 
     void SaveBestTime(float newTime)
