@@ -111,9 +111,9 @@ A timer tracks the player’s completion time, which will encourage replayabilit
 
 ## Credits
 Created by **Angela Lee, Connor Symons, Aleksa Ocampo, Jeremiah Cho**  
-- Angela: Level design (Menus, fall animation), art (Menu backgrounds)
+- Angela: Level design (Menus, Course construction/putting together, fall animation), art (Menu backgrounds), sound
 - Connor: Level design (Obstacles)
-- Aleksa: Level design/Animation (Player)
+- Aleksa: Level design/Animation/Sound (Player)
 - Jeremiah: Level design (Obstacles)
   
 Inspiration: *Wipeout* & *American Ninja Warrior*
